@@ -1,0 +1,10 @@
+PAIR_EMAIL = "team-example@cyruslists.com"
+
+AUTHORS = {
+	"dr" => "Denise Romikin",
+	"jb" => "James Bean",
+	"jc" => "Jessica Chaudhuri",
+	"ic" => "Isaac Cornelius",
+  "mjr" => "Misty J Ruiz-ramon",
+  "dw" => "Dweezil Wardley",
+}

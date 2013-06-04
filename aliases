@@ -1,0 +1,8 @@
+alias cdtv="cd ~/src/nyt"
+alias paperclip="ssh 10.51.209.248"
+alias pencil="ssh 10.51.206.77"
+alias n="cd ~/src/nimbul"
+alias nc="cd ~/src/nimbul/nimbul-core"
+alias nu="cd ~/src/nimbul/nimbul-ui"
+
+alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"

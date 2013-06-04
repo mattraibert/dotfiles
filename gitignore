@@ -1,0 +1,11 @@
+*.swp
+*.lock
+.DS_Store
+TAGS
+pkg/
+
+# For emacs:
+*~
+\#*
+.\#*
+.idea/workspace.xml

@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+`git branch`.split(/\n\*?/).map(&:chomp).map do |branch|
+  child_branches = `git branch --contains #{branch}`
+  child_branches = child_branches.split(/\n/)
+  unless child_branches.size <= 1
+    puts
+    puts "*** #{branch.strip} Is contained by ***"
+    puts child_branches
+  end
+end
+
+
+
+
+
+
+
+

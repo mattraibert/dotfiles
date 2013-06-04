@@ -1,0 +1,50 @@
+[user]
+  name = Cyrus Team
+  email = cyrusteam@cyruslists.com
+
+[alias]
+  ci = commit -m
+  co = checkout
+  st = status
+  br = branch
+  di = diff
+  orphans = rev-list --all --graph --oneline
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  logpath = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --name-status
+
+  # show difference between the HEAD and the index
+  staged = diff --cached
+
+  # show difference between working tree and the index
+  unstaged = diff
+
+  # show staged and unstaged changes (what would be committed with "git commit -a")
+  both = diff HEAD
+  
+[core]
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
+[diff "plist"]
+  textconv = plutil -convert xml1 -o -
+  cachetextconv = true
+[color]
+  ui = auto
+[filter "plist"]
+  clean = plutil -convert xml1 -o - -
+  smudge = plutil -convert binary1 -o - -
+[diff "image"]
+  textconv = sips -g allxml
+[push]
+  default = upstream
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+  tool = Kaleidoscope
+[difftool]
+  prompt = false
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+[mergetool]
+  prompt = false
+[merge]
+  tool = Kaleidoscope

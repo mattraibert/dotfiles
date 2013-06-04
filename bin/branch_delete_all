@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require_relative './shecho'
+
+`git branch`.split(/\n\*?/).reject {|branch| / -> / =~ branch }.map do |branch|
+  shecho("git branch -d #{branch}")
+end

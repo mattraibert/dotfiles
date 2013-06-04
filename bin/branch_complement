@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+unless ARGV.size == 1
+  puts "branch_complement is a tool for finding the commits that"
+  puts "ARE NOT in a particular commit's ancestry"
+  puts "usage: branch_complement <commit or branch>"
+  exit
+end
+
+`git branch complement_complement #{ARGV[0]}`
+
+commits = `git log dev --pretty=format:'%h -%d %s (%cr) %an' --abbrev-commit --date=relative`.split("\n")
+
+commits.map! do |commit|
+  [`git branch --contains #{commit.split(" ")[0]}`, commit]
+end
+
+commits.select! {|branches, commit| not branches =~ /complement_complement/ }
+commits.map! {|branches, commit| commit }
+
+`git branch -D complement_complement`
+
+puts commits

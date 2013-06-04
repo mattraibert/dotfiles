@@ -1,0 +1,6 @@
+git co dev
+branch_delete_all
+branch_clear_remotes
+git fetch
+branch_track_remotes
+git co dev
