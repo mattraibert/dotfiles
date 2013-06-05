@@ -62,4 +62,9 @@ alias cleanemacs='rm .#* **/.#*'
 export JAVA_HOME=/Library/Java/Home
 export EDITOR=emacs
 
+export HISTSIZE="SUPERSIZE"
+export HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 source ~/.aliases
