@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
+require_relative './shecho'
 
-`git branch`.split(/\n\*?/).map(&:chomp).map do |branch|
-  child_branches = `git branch --contains #{branch}`
+shecho("git branch").gsub(/\*/," ").split(/\n/).map(&:chomp).map do |branch|
+  child_branches = shecho("git branch --contains #{branch}")
   child_branches = child_branches.split(/\n/)
   unless child_branches.size <= 1
     puts
