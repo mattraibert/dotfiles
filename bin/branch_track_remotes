@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require_relative './shecho'
 
-`git branch -r`.split("\n").reject {|branch| / -> / =~ branch }.map do |branch|
-  shecho("git co -t #{branch}")
+shecho("git branch -r").split("\n").reject {|branch| / -> / =~ branch }.map do |branch|
+  puts shecho("git co -t #{branch}")
 end

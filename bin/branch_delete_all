@@ -2,5 +2,5 @@
 require_relative './shecho'
 
 shecho("git branch").gsub(/\*/," ").split(/\n/).reject {|branch| / -> / =~ branch }.map do |branch|
-  shecho("git branch -d #{branch}")
+  puts shecho("git branch -d #{branch}")
 end
