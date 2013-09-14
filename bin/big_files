@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+def hdu
+  `du -h -d1`.split("\n")
+end
+
+def du
+  `du -d1`.split("\n")
+end
+
+puts hdu.zip(du).sort_by {|x| x[1].to_i }.map(&:first)
