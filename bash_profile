@@ -65,7 +65,7 @@ export EDITOR=emacs
 export HISTSIZE="SUPERSIZE"
 export HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 HISTIGNORE='&:[bf]g:jobs:%1:%2:ls:cd:pwd:c:clear:exit'
 
 source ~/.aliases
