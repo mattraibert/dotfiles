@@ -5,7 +5,7 @@ require_relative './bin/shecho'
 pwd = Dir.pwd
 home = ENV['HOME']
 dir = Dir.glob "*"
-['bin', 'gitconfig', 'gitignore', 'bash_profile', 'aliases', 'gitattributes'].each do |dotfile|
+['bin', 'gitconfig', 'gitignore', 'bash_profile', 'aliases', 'gitattributes', 'gemrc'].each do |dotfile|
   sourcefile = "#{pwd}/#{dotfile}"
   destfile = "#{home}/.#{dotfile}"
   if dir.include? dotfile
