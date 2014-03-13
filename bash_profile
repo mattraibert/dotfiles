@@ -51,8 +51,8 @@ function git_initials () {
 
 export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\w\[$CYAN\]\$(git_initials)\[$NO_COLOR\]\[\$(parse_git_color)\]\$(parse_git_status)\[$NO_COLOR\]\$ "
 
-export PATH=/usr/local/bin:~/bin:~/.bin:$PATH
-source /etc/bash_completion.d/git
+export PATH=/usr/local/bin:~/bin:~/.bin:$PATH:~/.cabal/bin
+source /etc/bash_completion.d/git-prompt
 
 # Load RVM into a shell session *as a function*
    [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -68,4 +68,7 @@ shopt -s histappend
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 HISTIGNORE='&:[bf]g:jobs:%1:%2:ls:cd:pwd:c:clear:exit'
 
-source ~/.aliases
+if [ -f '$HOME/.aliases' ]; then
+    source ~/.aliases
+fi
+
