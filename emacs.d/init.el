@@ -29,6 +29,10 @@
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
  '(menu-bar-mode nil)
+ '(multi-web-global-mode t nil (multi-web-mode))
+ '(mweb-default-major-mode (quote html-mode))
+ '(mweb-filename-extensions (quote ("htm" "html" "tpl")))
+ '(mweb-tags (quote ((js-mode "<script.*>" "</script>") (css-mode "<style.*>" "</style>"))))
  '(tool-bar-mode nil))
 
 (custom-set-faces
