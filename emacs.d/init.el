@@ -47,3 +47,4 @@
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 (add-hook 'haskell-mode-hook 'flycheck-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)

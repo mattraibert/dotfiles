@@ -1,10 +1,8 @@
-PAIR_EMAIL = "team-example@cyruslists.com"
-
 AUTHORS = {
-	"dr" => "Denise Romikin",
-	"jb" => "James Bean",
-	"jc" => "Jessica Chaudhuri",
-	"ic" => "Isaac Cornelius",
-  "mjr" => "Misty J Ruiz-ramon",
-  "dw" => "Dweezil Wardley",
+  "dr" => {name: "Denise Romikin", email: "denny6@romikin.biz"},
+  "jb" => {name: "James Bean", email: "jb@aol.com"},
+  "jc" => {name: "Jessica Chaudhuri", email: "chauditout@hotmail.co.uk"},
+  "ic" => {name: "Isaac Cornelius", email: "isaaccornelius@pmail.com"},
+  "mjr" => {name: "Misty J Ruiz-ramon", email: "mjr@cmu.edu"},
+  "dw" => {name: "Dweezil Wardley", email: "wardley@gnu.cz"}
 }

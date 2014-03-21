@@ -1,6 +1,6 @@
 [user]
-  name = Cyrus Team
-  email = cyrusteam@cyruslists.com
+  name = Matt Raibert
+  email = mattraibert@gmail.com
 
 [alias]
   ci = commit -m

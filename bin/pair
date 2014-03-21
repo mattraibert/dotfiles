@@ -10,6 +10,7 @@
 # http://buzz.beezwax.net/2009/01/05/setting-the-commit-author-to-pair-programmers-names-in-git
 
 require_relative './pair_conf'
+require_relative './shecho'
 
 unless File.exists?(".git")
   puts "This doesn't look like a git repository."
@@ -25,28 +26,25 @@ authors = ARGV.map do |initials|
   end
 end
 
-if authors.any?
-  if authors.size == 1
-    authors = authors.first
-  elsif authors.size == 2
-    authors = authors.join(" and ")
-  else
-    authors = authors[0..-2].join(", ") + " and " + authors.last
+def join_pretty(words)
+  words = words.compact.reject(&:empty?)
+  if words.size == 1
+    words.first
+  elsif words.size >= 2
+    words[0..-2].join(", ") + " and " + words.last
   end
+end
 
+if authors.any?
+  names = join_pretty(authors.map {|author| author[:name] })
+  emails = join_pretty(authors.map {|author| author[:email] })
   initials = ARGV.join('/')
 
-  `git config user.name "#{authors}"`
-  `git config user.initials "#{initials}"`
-  `git config user.email "#{PAIR_EMAIL}"`
-
-  puts "user.name = #{authors}"
-  puts "user.initials = #{initials}"
-  puts "user.email = #{PAIR_EMAIL}"
+  shecho("git config user.name '#{names}'")
+  shecho("git config user.initials '#{initials}'")
+  shecho("git config user.email '#{emails}'")
 else
-  `git config --unset user.name`
-  `git config --unset user.initials`
-  `git config --unset user.email`
-
-  puts "Unset user.name, user.initials, and user.email"
+  shecho("git config --unset user.name")
+  shecho("git config --unset user.initials")
+  shecho("git config --unset user.email")
 end
