@@ -57,9 +57,6 @@ source /etc/bash_completion.d/git-prompt
 # Load RVM into a shell session *as a function*
    [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-alias ll="ls -al"
-alias cleanemacs='rm .#* **/.#*'
-export JAVA_HOME=/Library/Java/Home
 export EDITOR=emacs
 
 export HISTSIZE="SUPERSIZE"
@@ -68,7 +65,7 @@ shopt -s histappend
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 HISTIGNORE='&:[bf]g:jobs:%1:%2:ls:cd:pwd:c:clear:exit'
 
-if [ -f '$HOME/.aliases' ]; then
-    source ~/.aliases
+if [ -f $HOME/.aliases ]; then
+    source $HOME/.aliases
 fi
 

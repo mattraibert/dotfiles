@@ -43,6 +43,10 @@
  ;; If there is more than one, they won't work right.
  )
 
+(setq visible-bell t)
+(fset 'yes-or-no-p 'y-or-n-p)
+(show-paren-mode t)
+
 (autoload 'smex "smex")
 (global-set-key (kbd "M-x") 'smex)
 
