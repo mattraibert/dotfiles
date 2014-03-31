@@ -1,5 +1,6 @@
 (require 'package)
 (package-initialize)
+(require 'uniquify)
 
 (if (window-system) (set-frame-size (selected-frame) 142 41))
 
@@ -34,7 +35,8 @@
  '(mweb-default-major-mode (quote html-mode))
  '(mweb-filename-extensions (quote ("htm" "html" "tpl")))
  '(mweb-tags (quote ((js-mode "<script.*>" "</script>") (css-mode "<style.*>" "</style>"))))
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
