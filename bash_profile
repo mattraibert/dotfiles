@@ -51,7 +51,7 @@ function git_initials () {
 
 export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\w\[$CYAN\]\$(git_initials)\[$NO_COLOR\]\[\$(parse_git_color)\]\$(parse_git_status)\[$NO_COLOR\]\$ "
 
-export PATH=/usr/local/bin:~/bin:~/.bin:$PATH:~/.cabal/bin
+export PATH=~/.cabal/bin:/usr/local/bin:~/bin:~/.bin:$PATH
 source /etc/bash_completion.d/git-prompt
 
 # Load RVM into a shell session *as a function*
