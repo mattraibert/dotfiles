@@ -59,3 +59,5 @@
 
 (add-hook 'haskell-mode-hook 'flycheck-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(require 'find-file-in-repository)
+(global-set-key (kbd "C-x C-f") 'find-file-in-repository)
