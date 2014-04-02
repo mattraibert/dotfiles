@@ -1,0 +1,3 @@
+[submodule "emacs.d/haskdogs-emacs"]
+	path = emacs.d/haskdogs-emacs
+	url = git@github.com:ifigueroap/haskdogs-emacs.git

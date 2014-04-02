@@ -61,3 +61,6 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (require 'find-file-in-repository)
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
+
+(add-to-list 'load-path "~/.emacs.d/haskdogs-emacs/")
+(load "haskdogs-emacs")
