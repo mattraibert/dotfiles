@@ -9,3 +9,11 @@ pkg/
 \#*
 .\#*
 .idea/workspace.xml
+
+#for haskell/cabal
+log
+dist/
+deps/
+.cabal-sandbox/
+cabal.sandbox.config
+.dir-locals.el

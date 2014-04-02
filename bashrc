@@ -1,4 +1,4 @@
-export PATH=~/.cabal/bin:/usr/local/bin:~/bin:~/.bin:$PATH
+export PATH=.cabal-sandbox/bin:~/.cabal/bin:/usr/local/bin:~/bin:~/.bin:$PATH
 
 # If not running interactively, exit
 case $- in
