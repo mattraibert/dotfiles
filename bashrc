@@ -104,3 +104,6 @@ function git_initials () {
 export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\w\[$CYAN\]\$(git_initials)\[$NO_COLOR\]\[\$(parse_git_color)\]\$(parse_git_status)\[$NO_COLOR\]\$ "
 
 source /etc/bash_completion.d/git-prompt
+
+export PATH="$HOME/src/p/incoming/anaconda/bin:$PATH"
+export PATH="$HOME/.ghc/bin:$PATH"

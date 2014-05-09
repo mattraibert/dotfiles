@@ -9,6 +9,7 @@ pkg/
 \#*
 .\#*
 .idea/workspace.xml
+.idea
 
 #for haskell/cabal
 log
@@ -17,3 +18,5 @@ deps/
 .cabal-sandbox/
 cabal.sandbox.config
 .dir-locals.el
+
+posto.md
