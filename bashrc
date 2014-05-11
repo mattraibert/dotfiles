@@ -6,9 +6,6 @@ case $- in
       *) return;;
 esac
 
-# Load RVM into a shell session *as a function*
-   [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 export EDITOR=emacs
 
 export HISTSIZE="SUPERSIZE"
@@ -109,3 +106,5 @@ export PATH="$HOME/src/p/incoming/anaconda/bin:$PATH"
 export PATH="$HOME/.ghc/bin:$PATH"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
