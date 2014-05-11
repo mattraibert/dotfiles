@@ -23,7 +23,6 @@
  '(display-time-day-and-date t)
  '(display-time-mode t)
  '(flx-ido-mode t)
- '(flycheck-haskell-ghc-executable "/home/mattraibert/.ghc/bin/ghc")
  '(global-auto-revert-mode t)
  '(global-linum-mode t)
  '(ido-enable-flex-matching t)
@@ -65,6 +64,3 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (require 'find-file-in-repository)
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
-
-(add-to-list 'load-path "~/.emacs.d/haskdogs-emacs/")
-(load "haskdogs-emacs")

@@ -107,3 +107,5 @@ source /etc/bash_completion.d/git-prompt
 
 export PATH="$HOME/src/p/incoming/anaconda/bin:$PATH"
 export PATH="$HOME/.ghc/bin:$PATH"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
