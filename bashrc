@@ -56,7 +56,7 @@ NO_COLOR="\033[0m"
 
 
 function parse_git_branch () {
-   git status -b --porcelain 2> /dev/null | head -1 | sed -e 's/## //' -e 's/\.\.\..* \[/ \[/'
+   git status -b --porcelain 2> /dev/null | head -1 | sed -e 's/## //' -e 's/\.\.\.[^ ]*//' -e 's/\.\.\..* \[/ \[/'
 }
 
 function parse_git_color () {
