@@ -1,5 +1,3 @@
-export PATH=.cabal-sandbox/bin:~/.cabal/bin:/usr/local/bin:~/bin:~/.bin:$PATH
-
 # If not running interactively, exit
 case $- in
     *i*) ;;
@@ -41,7 +39,7 @@ fi
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-HISTIGNORE='&:[bf]g:jobs:%1:%2:ls:cd:pwd:c:clear:exit'
+HISTIGNORE='&:[bf]g:jobs:%1:%2:ls:ll:la:l:tree:git st:cd ..:cd /:cd:pwd:c:clear:exit'
 
 if [ -f $HOME/.aliases ]; then
     source $HOME/.aliases
@@ -102,8 +100,9 @@ export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO
 
 source /etc/bash_completion.d/git-prompt
 
-export PATH="$HOME/src/p/incoming/anaconda/bin:$PATH"
-export PATH="$HOME/.ghc/bin:$PATH"
+export PATH=/usr/local/bin:~/bin:~/.bin:$PATH
+
+export PATH=.cabal-sandbox/bin:~/.cabal/bin:$PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
