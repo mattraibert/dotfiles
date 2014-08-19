@@ -16,6 +16,7 @@
  '(auto-save-interval 20)
  '(auto-save-timeout 1)
  '(auto-save-visited-file-name t)
+ '(blink-matching-paren t)
  '(blink-matching-paren-distance nil)
  '(blink-matching-paren-on-screen nil)
  '(create-lockfiles nil)
@@ -35,6 +36,7 @@
  '(ido-everywhere t)
  '(ido-mode (quote both) nil (ido))
  '(ido-use-filename-at-point nil)
+ '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
  '(make-backup-files nil)
@@ -46,7 +48,10 @@
    (quote
     ((js-mode "<script.*>" "</script>")
      (css-mode "<style.*>" "</style>"))))
+ '(show-paren-mode t)
+ '(show-paren-style (quote mixed))
  '(show-trailing-whitespace t)
+ '(standard-indent 2)
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
@@ -79,3 +84,59 @@
 (require 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+
+(defadvice show-paren-function
+    (after show-matching-paren-offscreen activate)
+  "If the matching paren is offscreen, show the matching line in the
+        echo area. Has no effect if the character before point is not of
+        the syntax class ')'."
+  (interactive)
+  (let* ((cb (char-before (point)))
+	 (matching-text (and cb
+			     (char-equal (char-syntax cb) ?\) )
+			     (blink-matching-open))))
+    (when matching-text (message matching-text))))
+
+
+(defalias 'redo 'undo-tree-redo)
+(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-S-z") 'redo)
+
+;; handle auto-commenting better by rebinding C-; to comment/uncomment
+(defun comment-or-uncomment-region-or-line ()
+  "Comments or uncomments the region or the current line if there's no active region."
+  (interactive)
+  (let (beg end)
+    (if (region-active-p)
+	(setq beg (region-beginning) end (region-end))
+      (setq beg (line-beginning-position) end (line-end-position)))
+    (comment-or-uncomment-region beg end)
+    (next-line)))
+
+(global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
+
+(defun todo ()
+  "Insert a new dated TODO comment"
+  (interactive)
+  (when (region-active-p)
+    (delete-region (region-beginning) (region-end) )
+    )
+  (end-of-line)
+  (insert (format-time-string "TODO(mjr %Y-%m-%d): "))
+  (comment-or-uncomment-region-or-line)
+  (previous-line)
+  (end-of-line)
+  )
+
+(defun note ()
+  "Insert a new dated NOTE comment"
+  (interactive)
+  (when (region-active-p)
+    (delete-region (region-beginning) (region-end) )
+    )
+  (end-of-line)
+  (insert (format-time-string "NOTE(mjr %Y-%m-%d): "))
+  (comment-or-uncomment-region-or-line)
+  (previous-line)
+  (end-of-line)
+  )

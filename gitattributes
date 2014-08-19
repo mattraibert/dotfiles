@@ -1,8 +1,0 @@
-*.plist diff=plist
-*.plist filter=plist
-
-*.jpg diff=image
-*.jpeg diff=image
-*.gif diff=image
-*.png diff=image
-*.tiff diff=image

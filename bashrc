@@ -100,9 +100,9 @@ export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO
 
 source /etc/bash_completion.d/git-prompt
 
-export PATH=/usr/local/bin:~/bin:~/.bin:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$HOME/.bin:$PATH
 
-export PATH=.cabal-sandbox/bin:~/.cabal/bin:$PATH
+export PATH=.cabal-sandbox/bin:$HOME/.cabal/bin:$PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
