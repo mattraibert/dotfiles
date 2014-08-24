@@ -10,7 +10,6 @@
     smex
     haskell-mode
     flycheck
-    flycheck-hdevtools
     flycheck-haskell
     flx-ido))
 
@@ -94,6 +93,9 @@
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
+(require 'flycheck)
+(eval-after-load 'flycheck '(require 'flycheck-haskell))
+(eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 (add-hook 'haskell-mode-hook 'flycheck-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'highlight-symbol-mode)
