@@ -3,10 +3,11 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-	kill-region
-	haskell-indentation-delete-backward-char
-	))
+        haskell-indentation-delete-backward-char
+        haskell-indentation-delete-char
+        kill-region
+        ))
 
 (setq mc/cmds-to-run-once
       '(
-	))
+        ))
