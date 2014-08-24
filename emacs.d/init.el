@@ -1,12 +1,31 @@
 (require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 (require 'uniquify)
+(defconst required-packages
+  '(multi-web-mode
+    find-file-in-repository
+    multiple-cursors
+    highlight-symbol
+    smex
+    haskell-mode
+    flycheck
+    flycheck-hdevtools
+    flycheck-haskell
+    flx-ido))
+
+(defun install-packages ()
+  "Install all required packages."
+  (interactive)
+  (unless package-archive-contents
+    (package-refresh-contents))
+  (dolist (package required-packages)
+    (unless (package-installed-p package)
+      (package-install package))))
+
+(install-packages)
 
 (if (window-system) (set-frame-size (selected-frame) 142 41))
-
-(add-to-list 'package-archives  '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives  '("elpa" . "http://tromey.com/elpa/"))
-(add-to-list 'package-archives  '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -19,6 +38,7 @@
  '(blink-matching-paren t)
  '(blink-matching-paren-distance nil)
  '(blink-matching-paren-on-screen nil)
+ '(case-fold-search nil)
  '(create-lockfiles nil)
  '(css-indent-offset 2)
  '(custom-enabled-themes (quote (adwaita)))
@@ -96,7 +116,6 @@
 			     (char-equal (char-syntax cb) ?\) )
 			     (blink-matching-open))))
     (when matching-text (message matching-text))))
-
 
 (defalias 'redo 'undo-tree-redo)
 (global-set-key (kbd "C-z") 'undo)
