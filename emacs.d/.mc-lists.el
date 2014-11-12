@@ -5,6 +5,7 @@
       '(
         haskell-indentation-delete-backward-char
         haskell-indentation-delete-char
+        haskell-mode-contextual-space
         kill-region
         ))
 

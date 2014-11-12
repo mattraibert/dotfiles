@@ -1,7 +1,0 @@
-#!/usr/bin/env ruby
-require_relative './shecho'
-require_relative './machines_conf.rb'
-
-MACHINES.each do |machine|
-  puts shecho("ssh #{machine} #{ARGV.join(" ")}")
-end

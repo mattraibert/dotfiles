@@ -1,3 +1,6 @@
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/urweb-mode/")
+(load "urweb-mode-startup")
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
@@ -37,7 +40,7 @@
  '(blink-matching-paren t)
  '(blink-matching-paren-distance nil)
  '(blink-matching-paren-on-screen nil)
- '(case-fold-search nil)
+ '(column-number-mode t)
  '(create-lockfiles nil)
  '(css-indent-offset 2)
  '(custom-enabled-themes (quote (adwaita)))
@@ -49,6 +52,13 @@
  '(flx-ido-mode t)
  '(global-auto-revert-mode t)
  '(global-linum-mode t)
+ '(haskell-hoogle-command "~/.cabal/bin/hoogle")
+ '(haskell-mode-hook
+   (quote
+    (capitalized-words-mode highlight-symbol-mode flycheck-mode)))
+ '(haskell-process-type (quote cabal-repl))
+ '(haskell-stylish-on-save t)
+ '(haskell-tags-on-save t)
  '(highlight-symbol-idle-delay 0.2)
  '(ido-auto-merge-delay-time 100000)
  '(ido-enable-flex-matching t)
@@ -71,6 +81,7 @@
  '(show-paren-style (quote mixed))
  '(show-trailing-whitespace t)
  '(standard-indent 2)
+ '(tags-case-fold-search nil)
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
@@ -96,10 +107,16 @@
 (require 'flycheck)
 (eval-after-load 'flycheck '(require 'flycheck-haskell))
 (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+(add-hook 'after-init-hook #'global-flycheck-mode)
 (add-hook 'haskell-mode-hook 'flycheck-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'highlight-symbol-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-symbol-mode)
+;(add-to-list 'load-path "~/.emacs.d/structured-haskell-mode/elisp/")
+;(require 'shm)
+;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+;(set-face-background 'shm-current-face "#eee8d5")
+;(set-face-background 'shm-quarantine-face "lemonchiffon")
 (require 'find-file-in-repository)
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
 
@@ -161,3 +178,30 @@
   (previous-line)
   (end-of-line)
   )
+
+(define-key haskell-mode-map (kbd "C-c C-h") 'hoogle)
+
+(eval-after-load 'haskell-mode
+  '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
+
+;(setenv "PATH" (concat "~/.cabal/bin:" (getenv "PATH")))
+;(add-to-list 'exec-path "~/.cabal/bin")
+
+
+(eval-after-load 'haskell-mode
+  '(progn
+     (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+     (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
+     (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+     (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+     (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
+     (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
+     (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)))
+(eval-after-load 'haskell-cabal
+  '(progn
+     (define-key haskell-cabal-mode-map (kbd "C-`") 'haskell-interactive-bring)
+     (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+     (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+     (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
+  ;;
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
