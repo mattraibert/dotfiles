@@ -3,9 +3,11 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        electric-newline-and-maybe-indent
         haskell-indentation-delete-backward-char
         haskell-indentation-delete-char
         haskell-mode-contextual-space
+        indent-for-tab-command
         kill-region
         ))
 

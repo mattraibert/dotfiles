@@ -109,14 +109,14 @@
 (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (add-hook 'haskell-mode-hook 'flycheck-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+;(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'highlight-symbol-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-symbol-mode)
-;(add-to-list 'load-path "~/.emacs.d/structured-haskell-mode/elisp/")
-;(require 'shm)
-;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
-;(set-face-background 'shm-current-face "#eee8d5")
-;(set-face-background 'shm-quarantine-face "lemonchiffon")
+(add-to-list 'load-path "~/.emacs.d/structured-haskell-mode/elisp/")
+(require 'shm)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+(set-face-background 'shm-current-face "#eee8d5")
+(set-face-background 'shm-quarantine-face "lemonchiffon")
 (require 'find-file-in-repository)
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
 
@@ -184,8 +184,8 @@
 (eval-after-load 'haskell-mode
   '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
 
-;(setenv "PATH" (concat "~/.cabal/bin:" (getenv "PATH")))
-;(add-to-list 'exec-path "~/.cabal/bin")
+(setenv "PATH" (concat "~/.cabal/bin:" (getenv "PATH")))
+(add-to-list 'exec-path "~/.cabal/bin")
 
 
 (eval-after-load 'haskell-mode
