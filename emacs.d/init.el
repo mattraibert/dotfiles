@@ -117,6 +117,8 @@
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (set-face-background 'shm-current-face "#eee8d5")
 (set-face-background 'shm-quarantine-face "lemonchiffon")
+(define-key shm-map (kbd "M-DEL") 'shm/delete)
+(define-key shm-map (kbd "<C-backspace>") 'shm/delete)
 (require 'find-file-in-repository)
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
 
