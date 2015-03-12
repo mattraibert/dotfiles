@@ -8,8 +8,10 @@
   st = status
   br = branch
   di = diff
+  ca = commit --amend
   orphans = rev-list --all --graph --oneline
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  report = log --graph --pretty=format:'%s' --abbrev-commit --date=relative
   logpath = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --name-status
 
   # show difference between the HEAD and the index
@@ -20,7 +22,7 @@
 
   # show staged and unstaged changes (what would be committed with "git commit -a")
   both = diff HEAD
-  
+
 [core]
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes

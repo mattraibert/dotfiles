@@ -55,7 +55,7 @@
  '(haskell-hoogle-command "~/.cabal/bin/hoogle")
  '(haskell-mode-hook
    (quote
-    (capitalized-words-mode highlight-symbol-mode flycheck-mode)))
+    (capitalized-words-mode highlight-symbol-mode flycheck-mode)) t)
  '(haskell-process-type (quote cabal-repl))
  '(haskell-stylish-on-save t)
  '(haskell-tags-on-save t)
@@ -77,6 +77,7 @@
    (quote
     ((js-mode "<script.*>" "</script>")
      (css-mode "<style.*>" "</style>"))))
+ '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(show-paren-mode t)
  '(show-paren-style (quote mixed))
  '(show-trailing-whitespace t)
