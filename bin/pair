@@ -40,11 +40,11 @@ if authors.any?
   emails = join_pretty(authors.map {|author| author[:email] })
   initials = ARGV.join('/')
 
-  shecho("git config user.name '#{names}'")
-  shecho("git config user.initials '#{initials}'")
-  shecho("git config user.email '#{emails}'")
+  shecho("git config --global user.name '#{names}'")
+  shecho("git config --global user.initials '#{initials}'")
+  shecho("git config --global user.email '#{emails}'")
 else
-  shecho("git config --unset user.name")
-  shecho("git config --unset user.initials")
-  shecho("git config --unset user.email")
+  shecho("git config --global --unset user.name")
+  shecho("git config --global --unset user.initials")
+  shecho("git config --global --unset user.email")
 end
