@@ -2,3 +2,6 @@ auto-save-list
 elpa
 url
 places
+smex-items
+ido.last
+recentf

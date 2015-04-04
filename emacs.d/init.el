@@ -1,6 +1,3 @@
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/urweb-mode/")
-(load "urweb-mode-startup")
-
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
@@ -181,8 +178,6 @@
   (previous-line)
   (end-of-line)
   )
-
-(define-key haskell-mode-map (kbd "C-c C-h") 'hoogle)
 
 (eval-after-load 'haskell-mode
   '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))

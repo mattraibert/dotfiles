@@ -32,6 +32,8 @@ if ! shopt -oq posix; then
     . /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+  elif [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
   fi
 fi
 
@@ -98,11 +100,9 @@ function git_initials () {
 
 export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\w\[$CYAN\]\$(git_initials)\[$NO_COLOR\]\[\$(parse_git_color)\]\$(parse_git_status)\[$NO_COLOR\]\$ "
 
-source /etc/bash_completion.d/git-prompt
-
-export PATH=/usr/local/bin:$HOME/bin:$HOME/.bin:$PATH
-
 export PATH=.cabal-sandbox/bin:$HOME/.cabal/bin:$PATH
+
+export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
