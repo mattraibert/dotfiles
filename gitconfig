@@ -6,9 +6,11 @@
   di = diff
   ca = commit --amend
   orphans = rev-list --all --graph --oneline
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   report = log --graph --pretty=format:'%s' --abbrev-commit --date=relative
   logpath = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --name-status
+
+  hours = log --pretty=format:'%Cgreen%ad:%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=format:'%a, %0e %b %Y %l:%M %p'
 
   # show difference between the HEAD and the index
   staged = diff --cached

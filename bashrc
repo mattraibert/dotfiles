@@ -4,6 +4,7 @@ case $- in
       *) return;;
 esac
 
+stty dsusp undef
 export EDITOR=emacs
 
 export HISTSIZE="SUPERSIZE"
@@ -26,6 +27,12 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+function open_by_browser(){
+    open -a $1 $2
+}
+alias firefox='open_by_browser firefox'
+alias chrome='open_by_browser "Google Chrome"'
 
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -106,4 +113,4 @@ export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
