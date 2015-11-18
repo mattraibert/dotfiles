@@ -8,3 +8,4 @@ bin/pair_conf.rb
 bin/machines_conf.rb
 aliases
 session*
+projectile-bookmarks.eld

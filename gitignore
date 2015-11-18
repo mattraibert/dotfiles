@@ -5,6 +5,7 @@ TAGS
 codex.tags
 pkg/
 ignore/
+.env
 
 # For emacs:
 *~
