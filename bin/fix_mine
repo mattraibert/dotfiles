@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+updated = Dir["/Applications/RubyMine*/Contents/bin/idea.properties"].
+  reject {|f| File.read(f).include? "idea.case.sensitive.fs=true" }.
+  each {|f| `echo "idea.case.sensitive.fs=true" >> "#{f}"` }
+
+puts "Updated #{updated.join(' and ')}" unless updated.empty?
