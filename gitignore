@@ -21,6 +21,7 @@ deps/
 .cabal-sandbox/
 cabal.sandbox.config
 .dir-locals.el
+.stack-work
 
 posto.md
 .floo

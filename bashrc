@@ -5,7 +5,7 @@ case $- in
 esac
 
 stty dsusp undef
-export EDITOR=emacs
+export EDITOR="emacs -Q -nw"
 
 export HISTSIZE="SUPERSIZE"
 export HISTCONTROL=ignoreboth:erasedups
