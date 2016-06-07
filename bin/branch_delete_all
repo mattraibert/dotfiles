@@ -4,3 +4,7 @@ require_relative './shecho'
 shecho("git branch").gsub(/\*/," ").split(/\n/).reject {|branch| / -> / =~ branch }.map do |branch|
   puts shecho("git branch -d #{branch}")
 end
+
+shecho("git tag").gsub(/\*/," ").split(/\n/).reject {|tag| / -> / =~ tag }.map do |tag|
+  puts shecho("git tag -d #{tag}")
+end
