@@ -1,0 +1,7 @@
+(setq auto-save-interval 20)
+(setq auto-save-timeout 1)
+(setq auto-revert-interval 1)
+(setq auto-save-visited-file-name t)
+(setq create-lockfiles nil)
+(setq global-auto-revert-mode t)
+(setq make-backup-files nil)
