@@ -105,6 +105,10 @@ function git_initials () {
   fi
 }
 
+function pw () {
+cat ~/pw.txt | grep -i -A4 $@ | less
+}
+
 export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\w\[$CYAN\]\$(git_initials)\[$NO_COLOR\]\[\$(parse_git_color)\]\$(parse_git_status)\[$NO_COLOR\]\$ "
 
 export PATH=/usr/texbin:$PATH
