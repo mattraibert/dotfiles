@@ -109,6 +109,11 @@ function pw () {
 cat ~/pw.txt | grep -i -A4 $@ | less
 }
 
+function dbyml () {
+  cp ./config/database.sample.yml ./config/database.yml
+  sed -i ''  "s/folio/$@/g" ./config/database.yml
+}
+
 export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\w\[$CYAN\]\$(git_initials)\[$NO_COLOR\]\[\$(parse_git_color)\]\$(parse_git_status)\[$NO_COLOR\]\$ "
 
 export PATH=/usr/texbin:$PATH
@@ -118,3 +123,11 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 export PATH=$HOME/.local/bin:$PATH
+source /usr/local/etc/bash_completion.d/password-store
+
+[ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
+if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
+  export GPG_AGENT_INFO
+else
+  eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+fi

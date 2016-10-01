@@ -1,2 +1,0 @@
-#!/bin/bash
-exec /usr/local/Cellar/emacs/24.4/Emacs.app/Contents/MacOS/Emacs  "$@"
