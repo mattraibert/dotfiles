@@ -118,9 +118,6 @@ export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO
 export PATH=/usr/texbin:$PATH
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 export PATH=$HOME/.local/bin:$PATH
 source /usr/local/etc/bash_completion.d/password-store
 
@@ -130,3 +127,5 @@ if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
 else
   eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
 fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
