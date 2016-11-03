@@ -24,3 +24,5 @@ cabal.sandbox.config
 .stack-work
 
 posto.md
+node_modules/
+npm-debug.log

@@ -61,7 +61,6 @@ LIGHT_BLUE="\033[1;34m"
 CYAN="\033[0;36m"
 NO_COLOR="\033[0m"
 
-
 function parse_git_branch () {
    git status -b --porcelain 2> /dev/null | head -1 | sed -e 's/## //' -e 's/\.\.\.[^ ]*//' -e 's/\.\.\..* \[/ \[/'
 }
@@ -114,7 +113,7 @@ function dbyml () {
   sed -i ''  "s/folio/$@/g" ./config/database.yml
 }
 
-export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\w\[$CYAN\]\$(git_initials)\[$NO_COLOR\]\[\$(parse_git_color)\]\$(parse_git_status)\[$NO_COLOR\]\$ "
+export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\w\[$CYAN\]\$(git_initials)\[$NO_COLOR\]\[\$(parse_git_color)\]\$(parse_git_status)\[$NO_COLOR\]\n\$ "
 
 export PATH=/usr/texbin:$PATH
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
