@@ -116,7 +116,6 @@ function dbyml () {
 export PS1="\[$GREEN\]\t\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\h\[$LIGHT_BLUE\]∙\[$NO_COLOR\]\w\[$CYAN\]\$(git_initials)\[$NO_COLOR\]\[\$(parse_git_color)\]\$(parse_git_status)\[$NO_COLOR\]\n\$ "
 
 export PATH=/usr/texbin:$PATH
-export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
 
 export PATH=$HOME/.local/bin:$PATH
 source /usr/local/etc/bash_completion.d/password-store
@@ -128,4 +127,5 @@ else
   eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
 fi
 
+export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
