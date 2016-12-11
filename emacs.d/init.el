@@ -15,6 +15,7 @@
 
 (load "~/.emacs.d/config/global.el")
 (load "~/.emacs.d/config/autosave.el")
+(load "~/.emacs.d/config/haskell.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
