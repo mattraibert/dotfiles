@@ -1,13 +1,10 @@
 (use-package exec-path-from-shell :ensure t)
 (use-package flycheck :ensure t)
 (use-package highlight-parentheses :ensure t)
-(use-package auto-highlight-symbol :ensure t)
+(use-package highlight-symbol :ensure t)
 (use-package markdown-mode :ensure t)
-(use-package projectile :ensure t)
 (use-package popwin :ensure t)
 (use-package smart-mode-line :ensure t)
-
-(projectile-global-mode)
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -25,9 +22,8 @@
 
 (setq-default indent-tabs-mode nil)
 
-(require 'auto-highlight-symbol)
-(global-auto-highlight-symbol-mode t)
-(setq ahs-idle-interval 0.2)
+(setq highlight-symbol-idle-delay 0.2)
+(add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
 (require 'popwin)
 (popwin-mode 1)
@@ -35,7 +31,10 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-
 (require 'ido)
 (ido-mode t)
 (setq ido-enable-flex-matching t)
+
+(recentf-mode)
+
+(global-set-key (kbd "C-x C-r") 'recentf-open-files)

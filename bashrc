@@ -4,6 +4,8 @@ case $- in
       *) return;;
 esac
 
+# export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
+
 stty dsusp undef
 export EDITOR="emacs -Q -nw"
 

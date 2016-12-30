@@ -4,14 +4,14 @@
 (use-package shm :ensure t)
 
 (add-hook 'haskell-mode-hook 'intero-mode)
-(add-hook 'haskell-mode-hook 'company-mode)
 
 (setq haskell-stylish-on-save t)
 
-(require 'shm)
-(add-hook 'haskell-mode-hook 'structured-haskell-mode)
-(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+;(require 'shm)
+;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+;(set-face-background 'shm-current-face "white")
+;(set-face-background 'shm-quarantine-face "white")
 
-
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 ;; heist templates are html
 ;(add-to-list 'auto-mode-alist '("[.]tpl$" . web-mode))
