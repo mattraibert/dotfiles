@@ -5,6 +5,13 @@
 (use-package markdown-mode :ensure t)
 (use-package popwin :ensure t)
 (use-package smart-mode-line :ensure t)
+(use-package smex :ensure t)
+
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
