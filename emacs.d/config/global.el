@@ -45,3 +45,5 @@
 (recentf-mode)
 
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
+
+(setq confirm-kill-emacs 'y-or-n-p)
