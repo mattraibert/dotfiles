@@ -25,12 +25,12 @@
 [core]
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
-	pager = less -S
+  pager = less -S
+[color]
+  ui = auto
 [diff "plist"]
   textconv = plutil -convert xml1 -o -
   cachetextconv = true
-[color]
-  ui = auto
 [filter "plist"]
   clean = plutil -convert xml1 -o - -
   smudge = plutil -convert binary1 -o - -
@@ -38,20 +38,7 @@
   textconv = sips -g allxml
 [push]
   default = upstream
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[diff]
-  tool = Kaleidoscope
-[difftool]
-  prompt = false
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-[mergetool]
-  prompt = false
-[merge]
-  tool = Kaleidoscope
 [user]
-[user]
-	name = Matt J Raibert
-	initials = mjr
-	email = mattraibert@positiondev.com
+  name = Matt J Raibert
+  initials = mjr
+  email = mattraibert@positiondev.com
