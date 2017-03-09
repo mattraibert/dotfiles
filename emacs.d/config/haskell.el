@@ -2,10 +2,13 @@
 (use-package intero :ensure t)
 (use-package popup :ensure t)
 (use-package shm :ensure t)
+(use-package hlint-refactor :ensure t)
 
 (add-hook 'haskell-mode-hook 'intero-mode)
 
 (setq haskell-stylish-on-save t)
+(setq haskell-hasktags-path "haskdogs")
+(setq haskell-tags-on-save t)
 
 ;(require 'shm)
 ;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
