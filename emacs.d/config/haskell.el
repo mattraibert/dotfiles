@@ -5,6 +5,7 @@
 (use-package hlint-refactor :ensure t)
 
 (add-hook 'haskell-mode-hook 'intero-mode)
+(add-hook 'haskell-mode-hook 'auto-revert-mode)
 
 (setq haskell-stylish-on-save t)
 (setq haskell-hasktags-path "haskdogs")
