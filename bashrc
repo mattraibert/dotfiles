@@ -7,7 +7,7 @@ esac
 # export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
 
 stty dsusp undef
-export EDITOR="emacs -Q -nw"
+export EDITOR="emacs -nw -Q"
 
 export HISTSIZE="SUPERSIZE"
 export HISTCONTROL=ignoreboth:erasedups
@@ -56,7 +56,7 @@ if [ -f $HOME/.aliases ]; then
     source $HOME/.aliases
 fi
 
-alias ec="emacsclient -a '' -n -c "
+alias ec="emacsclient -a '' -n"
 
 RED="\033[0;31m"
 YELLOW="\033[0;33m"
