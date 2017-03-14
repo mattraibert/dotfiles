@@ -56,6 +56,8 @@ if [ -f $HOME/.aliases ]; then
     source $HOME/.aliases
 fi
 
+alias ec="emacsclient -a '' -n -c "
+
 RED="\033[0;31m"
 YELLOW="\033[0;33m"
 GREEN="\033[0;32m"
