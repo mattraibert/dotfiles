@@ -24,7 +24,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(global-linum-mode t)
- '(safe-local-variable-values (quote ((encoding . utf-8)))))
+ '(js-indent-level 2)
+ '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -36,4 +38,7 @@
  (lambda ()
    (interactive)
    (save-some-buffers t)
-   (lower-frame)))
+   (kill-this-buffer)
+   (switch-to-buffer (get-buffer-create "*scratch*"))
+   (lower-frame)
+   (iconify-frame)))

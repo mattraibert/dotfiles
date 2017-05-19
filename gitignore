@@ -1,5 +1,6 @@
 *.swp
 *.lock
+.~lock*
 .DS_Store
 TAGS
 codex.tags
