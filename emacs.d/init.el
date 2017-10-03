@@ -42,3 +42,6 @@
    (switch-to-buffer (get-buffer-create "*scratch*"))
    (lower-frame)
    (iconify-frame)))
+
+(global-set-key (kbd "M-<right>") right-word)
+(global-set-key (kbd "M-<left>") left-word)

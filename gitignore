@@ -14,6 +14,8 @@ ignore/
 .\#*
 .idea/workspace.xml
 .idea
+*.iml
+out/
 
 #for haskell/cabal
 log
