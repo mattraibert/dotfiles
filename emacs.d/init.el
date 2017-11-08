@@ -43,5 +43,5 @@
    (lower-frame)
    (iconify-frame)))
 
-(global-set-key (kbd "M-<right>") right-word)
-(global-set-key (kbd "M-<left>") left-word)
+(global-set-key (kbd "M-<right>") 'right-word)
+(global-set-key (kbd "M-<left>") 'left-word)
