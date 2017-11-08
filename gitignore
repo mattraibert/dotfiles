@@ -12,9 +12,9 @@ ignore/
 *~
 \#*
 .\#*
+
+# Intellij and friends
 .idea/workspace.xml
-.idea
-*.iml
 out/
 
 #for haskell/cabal
