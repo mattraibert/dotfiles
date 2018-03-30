@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-updated = Dir["/Applications/IntelliJ*/Contents/bin/idea.properties"].
+updated = Dir["/Applications/*/Contents/bin/idea.properties"].
   reject {|f| File.read(f).include? "idea.case.sensitive.fs=true" }.
   each {|f| `echo "idea.case.sensitive.fs=true" >> "#{f}"` }
 

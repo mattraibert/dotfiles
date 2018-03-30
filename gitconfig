@@ -40,6 +40,6 @@
 [push]
   default = upstream
 [user]
-  name = Matt J Raibert
-  initials = mjr
-  email = mattraibert@positiondev.com
+	name = Matt J Raibert
+	initials = mjr
+	email = mattraibert@positiondev.com
