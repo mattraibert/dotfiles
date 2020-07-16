@@ -23,6 +23,7 @@
   # show staged and unstaged changes (what would be committed with "git commit -a")
   both = diff HEAD
 
+  path = "!f() { git lg --branches=$1*/*; }; f"
 [core]
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
