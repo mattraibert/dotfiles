@@ -1,5 +1,7 @@
 *.swp
 *.lock
+!yarn.lock
+!Gemfile.lock
 .~lock*
 .DS_Store
 TAGS
