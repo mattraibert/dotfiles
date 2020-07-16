@@ -21,20 +21,20 @@ shopt -s globstar
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    alias grep='ggrep --color=auto'
+    alias fgrep='gfgrep --color=auto'
+    alias egrep='gegrep --color=auto'
 fi
 
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-function open_by_browser(){
-    open -a $1 $2
+alias firefox="open -a Firefox"
+
+chrome () {
+  /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome $* 2>&1 &
 }
-alias firefox='open_by_browser firefox'
-alias chrome='open_by_browser "Google Chrome"'
 
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -134,10 +134,8 @@ fi
 
 export PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:$PATH
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/mattraibert/.sdkman"
-[[ -s "/Users/mattraibert/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/mattraibert/.sdkman/bin/sdkman-init.sh"
+eval "$(nodenv init -)"
+eval "$(rbenv init -)"
