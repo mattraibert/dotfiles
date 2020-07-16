@@ -4,10 +4,12 @@ case $- in
       *) return;;
 esac
 
-# export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
+function ec() {
+  emacsclient $* 2>&1 &
+}
 
 stty dsusp undef
-export EDITOR="emacs -nw -Q"
+export EDITOR="emacsclient"
 
 export HISTSIZE="SUPERSIZE"
 export HISTCONTROL=ignoreboth:erasedups
@@ -55,8 +57,6 @@ HISTIGNORE='&:[bf]g:jobs:%1:%2:ls:ll:la:l:tree:git st:cd ..:cd /:cd:pwd:c:clear:
 if [ -f $HOME/.aliases ]; then
     source $HOME/.aliases
 fi
-
-alias ec="emacsclient -a '' -n"
 
 RED="\033[0;31m"
 YELLOW="\033[0;33m"

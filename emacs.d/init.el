@@ -25,6 +25,9 @@
  ;; If there is more than one, they won't work right.
  '(global-linum-mode t)
  '(js-indent-level 2)
+ '(package-selected-packages
+   (quote
+    (use-package smex smart-mode-line shm projectile popwin popup markdown-mode hlint-refactor highlight-symbol highlight-parentheses exec-path-from-shell)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(vc-follow-symlinks t))
 (custom-set-faces
@@ -45,3 +48,5 @@
 
 (global-set-key (kbd "M-<right>") 'right-word)
 (global-set-key (kbd "M-<left>") 'left-word)
+
+(server-start)
