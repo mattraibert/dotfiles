@@ -66,11 +66,19 @@ CYAN="\033[0;36m"
 NO_COLOR="\033[0m"
 
 function parse_git_branch () {
-   git status -b --porcelain 2> /dev/null | head -1 | sed -e 's/## //' -e 's/\.\.\.[^ ]*//' -e 's/\.\.\..* \[/ \[/'
+  git status -b --porcelain 2> /dev/null | head -1 | sed -e 's/## //' -e 's/\.\.\.[^ ]*//' -e 's/\.\.\..* \[/ \[/'
+}
+
+function parse_git_hash () {
+  git rev-parse --short HEAD 2> /dev/null
+}
+
+function git_info () {
+  echo -e "`parse_git_branch`:`parse_git_hash`"
 }
 
 function parse_git_color () {
-  if [ -n "`git status --porcelain 2>&1 | grep "fatal: Not a git repository"`" ]
+  if [ -n "`git status --porcelain 2>&1 | grep -i "fatal: Not a git repository"`" ]
   then
     echo -e "$NO_COLOR"
   elif [ -z "`git status --porcelain 2> /dev/null`" ]
@@ -85,22 +93,22 @@ function parse_git_color () {
 }
 
 function parse_git_status () {
-  if [ -n "`git status --porcelain 2>&1 | grep "fatal: Not a git repository"`" ]
+  if [ -n "`git status --porcelain 2>&1 | grep "fatal: not a git repository"`" ]
   then
     echo -e ""
   elif [ -z "`git status --porcelain 2> /dev/null`" ]
   then
-    echo -e "(`parse_git_branch`)"
+    echo -e "(`git_info`)"
   elif [ -z "`git status --porcelain 2> /dev/null | grep -v -E "^[MARCD]  .*$"`" ]
   then
-    echo -e "{`parse_git_branch`}"
+    echo -e "{`git_info`}"
   else
-    echo -e "<`parse_git_branch`>"
+    echo -e "<`git_info`>"
   fi
 }
 
 function git_initials () {
-  if [ -n "`git status --porcelain 2>&1 | grep "fatal: Not a git repository"`" ]
+  if [ -n "`git status --porcelain 2>&1 | grep "fatal: not a git repository"`" ]
   then
     echo -e ""
   else
