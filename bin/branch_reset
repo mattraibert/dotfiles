@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 require_relative './shecho'
 
-shecho("git co master")
+shecho("git co main")
 shecho("git pull")
 shecho("branch_delete_all")
 shecho("git remote prune origin")
-shecho("git co master")
+shecho("git co main")
