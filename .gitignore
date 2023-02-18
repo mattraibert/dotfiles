@@ -9,3 +9,7 @@ bin/machines_conf.rb
 aliases
 session*
 projectile-bookmarks.eld
+.idea
+idea
+webstorm
+rubymine
