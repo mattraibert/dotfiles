@@ -78,6 +78,7 @@ source $ZSH/oh-my-zsh.sh
 
 # can't figure out how to set a custom theme, but sourcing the theme just works so...
 source "$HOME/src/dotfiles/bureau-hash.zsh-theme"
+source "$HOME/src/dotfiles/zshrc.local"
 
 # User configuration
 

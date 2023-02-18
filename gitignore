@@ -32,3 +32,5 @@ cabal.sandbox.config
 posto.md
 node_modules/
 npm-debug.log
+
+*.local
