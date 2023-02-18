@@ -9,6 +9,7 @@ codex.tags
 pkg/
 ignore/
 .env
+.env.local
 
 # For emacs:
 *~
@@ -31,5 +32,3 @@ cabal.sandbox.config
 posto.md
 node_modules/
 npm-debug.log
-
-config/database.yml
