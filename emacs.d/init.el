@@ -16,7 +16,7 @@
 (load "~/.emacs.d/config/global.el")
 (load "~/.emacs.d/config/autosave.el")
 (load "~/.emacs.d/config/projectile.el")
-(load "~/.emacs.d/config/haskell.el")
+;;(load "~/.emacs.d/config/haskell.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -26,9 +26,8 @@
  '(global-linum-mode t)
  '(js-indent-level 2)
  '(package-selected-packages
-   (quote
-    (use-package smex smart-mode-line shm projectile popwin popup markdown-mode hlint-refactor highlight-symbol highlight-parentheses exec-path-from-shell)))
- '(safe-local-variable-values (quote ((encoding . utf-8))))
+   '(use-package smex smart-mode-line shm projectile popwin popup markdown-mode hlint-refactor highlight-symbol highlight-parentheses exec-path-from-shell))
+ '(safe-local-variable-values '((encoding . utf-8)))
  '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
