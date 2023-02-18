@@ -1,46 +1,49 @@
 [alias]
-  ch = cherry-pick
-  ci = commit -m
-  co = checkout
-  st = status
-  br = branch
-  di = diff
-  ca = commit --amend
-  orphans = rev-list --all --graph --oneline
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  report = log --graph --pretty=format:'%s' --abbrev-commit --date=relative
-  logpath = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --name-status
+	ch = cherry-pick
+	ci = commit -m
+	co = checkout
+	st = status
+	br = branch
+	di = diff
+	ca = commit --amend
+	orphans = rev-list --all --graph --oneline
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	report = log --graph --pretty=format:'%s' --abbrev-commit --date=relative
+	logpath = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --name-status
 
-  hours = log --author-date-order --pretty=format:'%Cgreen%ad:%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit  --date=format:'%Y-%m-%d,%H:%M:%S'
-  toggl = log --date-order --pretty=format:'\"%ae\",,,\"Programming\",\"%s\",Yes,%ad,00:30:00,\"git,uninvoiced\"' --abbrev-commit --date=format:'%Y-%m-%d,%H:%M:%S'
+	hours = log --author-date-order --pretty=format:'%Cgreen%ad:%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit	--date=format:'%Y-%m-%d,%H:%M:%S'
+	toggl = log --date-order --pretty=format:'\"%ae\",,,\"Programming\",\"%s\",Yes,%ad,00:30:00,\"git,uninvoiced\"' --abbrev-commit --date=format:'%Y-%m-%d,%H:%M:%S'
 
-  # show difference between the HEAD and the index
-  staged = diff --cached
+	# show difference between the HEAD and the index
+	staged = diff --cached
 
-  # show difference between working tree and the index
-  unstaged = diff
+	# show difference between working tree and the index
+	unstaged = diff
 
-  # show staged and unstaged changes (what would be committed with "git commit -a")
-  both = diff HEAD
+	# show staged and unstaged changes (what would be committed with "git commit -a")
+	both = diff HEAD
 
-  path = "!f() { git lg --branches=$1*/*; }; f"
+	path = "!f() { git lg --branches=$1*/*; }; f"
 [core]
-  excludesfile = ~/.gitignore
-  attributesfile = ~/.gitattributes
-  pager = less -S
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+	pager = less -S
 [color]
-  ui = auto
+	ui = auto
 [diff "plist"]
-  textconv = plutil -convert xml1 -o -
-  cachetextconv = true
+	textconv = plutil -convert xml1 -o -
+	cachetextconv = true
 [filter "plist"]
-  clean = plutil -convert xml1 -o - -
-  smudge = plutil -convert binary1 -o - -
+	clean = plutil -convert xml1 -o - -
+	smudge = plutil -convert binary1 -o - -
 [diff "image"]
-  textconv = sips -g allxml
+	textconv = sips -g allxml
 [push]
-  default = upstream
+	default = upstream
+	autoSetupRemote = true
 [user]
 	name = Matt J Raibert
 	initials = mjr
 	email = mattraibert@positiondev.com
+[init]
+	defaultBranch = main
